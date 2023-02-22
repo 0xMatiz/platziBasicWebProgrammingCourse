@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Rock, Paper or Scissors</title>
+        <script>
+            // 1 is Rock, 2 is paper, 3 is scissors
+            let player, pc;
+            
+            player = prompt("Choose: 1 for rock, 2 for paper and 3 for scissors");
+            //pc = 1;
+            pc = Math.round(Math.random() * 3) + 1; //Prints a round number between 1 and 3 
+            
+            console.log(pc); //this is for testing pc variable.
+            
+            //Player election
+            if (player == 1) {
+                alert("You choose 🪨");
+            } else if (player == 2) {
+                alert("You choose 📋");
+            } else if (player == 3) {
+                alert("You choose ✂️");
+            } else {
+                alert('You choose to loose!');
+            }
+
+            //Result
+            if (pc == player ) {
+                alert("It's a tie");
+            } else if (pc == 1 && player == 2) {
+                alert("You loose!");
+            } else if (pc == 1 && player == 3) {
+                alert("You win!");
+            } else {
+                alert('You choose to loose!');
+            }
+            
+        </script>
+    </head>
+    <body>
+        <h1>Rock, Paper or Scissors</h1>
+    </body>
+</html>
