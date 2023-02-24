@@ -7,16 +7,16 @@ function startGame () { //This function starts the game
 
 function selectPlayerPartner () { //This function throws a message with the partner you choose
     //alert(`YOU CHOSE YOUR PARTNER`);
-    let partnerMonab = document.getElementById("monab");
-    let partnerNestorf = document.getElementById("nestorf");
-    let partnerJustoz = document.getElementById("justoz");
+    let inputMonab = document.getElementById("monab");
+    let inputNestorf = document.getElementById("nestorf");
+    let inputJustoz = document.getElementById("justoz");
     
-    if(partnerMonab.checked) {
-        alert(`You chose ${partnerMonab} as your partner!`);
-    } else if(partnerNestorf.checked) {
-        alert(`You chose ${partnerNestorf} as your partner!`);
-    } else if(partnerJustoz.checked) {
-        alert(`You chose ${partnerJustoz} as your partner!`);
+    if(inputMonab.checked) {
+        alert(`You chose Monab as your partner!`);
+    } else if(inputNestorf.checked) {
+        alert(`You chose Nestorf as your partner!`);
+    } else if(inputJustoz.checked) {
+        alert(`You chose Justoz as your partner!`);
     } else {
         alert(`You didn't choose any partner`)
     }
