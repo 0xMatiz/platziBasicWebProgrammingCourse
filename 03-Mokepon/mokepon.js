@@ -10,6 +10,15 @@ Santz -> FIRE & WATER<!--6)Quirk "Reliable Vapor":-->
  */
 
 //when you put an id from html you cant use - you have to use _
-alert('Hello player, Welcom to MOKEPON!');
+
+//alert('Hello player, Welcom to MOKEPON!');
+
+//FUNCTION DECLARING AREA
+function selectPlayerPartner () {
+    
+}
+//FUNCTION DECLARIN AREA END
+
 
 let playerPartnerButton = document.getElementById('partner-button');
+playerPartnerButton.addEventListener('click', selectPlayerPartner)
