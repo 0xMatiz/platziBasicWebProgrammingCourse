@@ -13,3 +13,13 @@ Santz -> FIRE & WATER<!--6)Quirk "Reliable Vapor":-->
 <!-- You can use <h1> only once-->
 
 <!--<input type = " "> Lets users write something, use type="" to choose enabling users write things between text, number, time, date, radio, checkbox.-->
+
+            
+            <label for="walz">Walz</label>
+            <input type="radio" name="partner" id="walz"/>
+            
+            <label for="gerb">Gerb</label>
+            <input type="radio" name="partner" id="gerb"/>
+            
+            <label for="santz">Santz</label>
+            <input type="radio" name="partner" id="santz"/>
