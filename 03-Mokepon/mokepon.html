@@ -15,14 +15,14 @@
         <section id="choose-partner">
             <h2>Choose your partner</h2>
             
-            <label for="monab">Monab</label>
-            <input type="radio" name="partner" id="monab"/> 
+            <label for="monab">Justoz 🔥</label>
+            <input type="radio" name="partner" id="justoz"/> 
             
-            <label for="nestorf">Nestorf</label>
+            <label for="nestorf">Nestorf 💧</label>
             <input type="radio" name="partner" id="nestorf"/>
             
-            <label for="justoz">Justoz</label>
-            <input type="radio" name="partner" id="justoz"/>
+            <label for="justoz">Monab 🌱</label>
+            <input type="radio" name="partner" id="monab"/>
 
             <p>
                 <button id="partner-button">Select</button>
@@ -32,7 +32,7 @@
         <section id="choose-attack">
             <h2>Choose your attack:</h2>
 
-            <p>Your partner <span id="player-partner">Justoz</span> has <span>3</span> HP left</p>
+            <p>Your partner <span id="player-partner"></span> has <span>3</span> HP left</p>
             <p>The opponent partner <span id="opponent-partner"></span> has <span>3</span> HP left</p>
 
             <p>
@@ -43,7 +43,7 @@
         </section>
 
         <section id="combat-log">
-            <p>Your partner attacked with FIRE, the opponent partner attacked with PLANT - YOU WON 🎉</p>
+            <p>Your partner attacked with <span id="player-attack-span"></span>, the opponent partner attacked with <span id="opponent-attack-span"></span> - <span id="combat-result"></span> 🎉</p>
         </section>
 
         <section id="reboot">
