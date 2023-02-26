@@ -1,16 +1,21 @@
 //GLOBAL VARIABLE AREA
 let playerAttack; //this variable gets what the player selects
 let opponentAttack;
+let combatResult;
+let win;
+let loss;
 
 //FUNCTION DECLARING AREA
 function startGame () { //This function starts the game
     let playerPartnerButton = document.getElementById("partner-button");
     playerPartnerButton.addEventListener('click', selectPlayerPartner); //Add a listener to a 'click' event in the  webpage
 
-    let fireButton, waterButton, plantButton; //declares 3 variables at onnce.
-    fireButton.addEventListener('click', fireAttack); //declares fire attack.
-    waterButton.addEventListener('click', waterAttack); //declares water attack.
-    plantButton.addEventListener('click', plantAttack); //declares plant attack.
+    let fireButton = document.getElementById("fire-button"); //always be sure that you have declared your variables!!
+    let waterButton = document.getElementById("water-button");
+    let plantButton = document.getElementById("plant-button");
+    fireButton.addEventListener('click', fireAttack); //declares fire attack
+    waterButton.addEventListener('click', waterAttack); //declares water attack
+    plantButton.addEventListener('click', plantAttack); //declares plant attack
 }
 
 function selectPlayerPartner () { //Throws a message with the partner you choose
@@ -78,9 +83,9 @@ function createCombatLog () { //creates a message for the combat log <div>
     let combatLogSection = document.getElementById("combat-log");
     
     let paragraph = document.createElement('p'); //creates an element with 'p' letter
-    paragraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - PENDING`;
+    paragraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - ${combatResult}`;
 
-    combatLogSection.appendChild();
+    combatLogSection.appendChild(paragraph);
 }
 
 function random(min, max) { //Prints a random number between min and (max)+1
@@ -89,6 +94,48 @@ function random(min, max) { //Prints a random number between min and (max)+1
 
 //CODE TESTING AREA
 
+function gameResult () {
+    if (playerAttack == opponentAttack) {
+        combatResult = "IT'S A TIE";
+    } else if (playerAttack == 'FIRE' && opponentAttack == 'WATER') {
+        combatResult = "YOU LOOSE";
+        loss += 1;
+    } else if (playerAttack == 'FIRE' && opponentAttack == 'PLANT') {
+        combatResult = "YOU WIN"
+        win += 1;
+    } else if (playerAttack == 'WATER' && opponentAttack == 'PLANT') {
+        combatResult = "YOU LOOSE"
+        loss += 1;
+    } else if (playerAttack == 'WATER' && opponentAttack == 'FIRE') {
+        combatResult = "YOU WIN"
+        win += 1;
+    }  else if (playerAttack == 'PLANT' && opponentAttack == 'FIRE') {
+        combatResult = "YOU LOOSE"
+        loss += 1;
+    }  else if (playerAttack == 'PLANT' && opponentAttack == 'WATER') {
+        combatResult = "YOU WIN"
+        win += 1;
+    }
+}
 
+function reboot () { //search what you did wrong!
+    if (win >= 3) {
+        alert('YOU WON THE BEST OF THREE!');
+    } else if (loss >= 3) {
+        alert('YOU LOST THE BEST OF THREE!');
+    } else {
+        alert('ERROR IN REBOOT');
+    }
+}
+
+function rebootTheGame () {
+    let rebootButton = document.getElementById("reboot-button");
+    reboot.addEventListener('click', rebootButton);
+}   
 //REGULAR CODE
-window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loadds.
+while (win < 3 && loss < 3) {
+    window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.    
+}
+
+rebootTheGame();
+
