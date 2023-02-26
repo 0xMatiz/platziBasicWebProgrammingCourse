@@ -1,9 +1,17 @@
-//FUNCTION DECLARING CODE
+//GLOBAL VARIABLE AREA
+let playerAttack;
 
+//FUNCTION DECLARING CODE
 function startGame () { //This function starts the game
     let playerPartnerButton = document.getElementById("partner-button");
-    
     playerPartnerButton.addEventListener('click', selectPlayerPartner); //Add a listener to a 'click' event in the  webpage
+
+    let fireButton;
+    fireButton.addEventListener('click', fireAttack);
+    let waterButton;
+    waterButton.addEventListener('click', waterAttack);
+    let plantButton;
+    plantButton.addEventListener('click', plantAttack);
 }
 
 function selectPlayerPartner () { //Throws a message with the partner you choose
@@ -36,6 +44,18 @@ function selectOpponentPartner () { //Selects opponent partner name making use o
     } else {
         opponentPartnerSpan.innerHTML = 'Monab';
     }
+}
+
+function fireAttack () {
+    playerAttack = 'FIRE';
+}
+
+function waterAttack () {
+    playerAttack = 'WATER';
+}
+
+function plantAttack () {
+    plantAttack = 'PLANT';
 }
 
 function random(min, max) { //Prints a random number between min and (max)+1
