@@ -1,12 +1,12 @@
-//FUNCTION DECLARING
+//FUNCTION DECLARING CODE
+
 function startGame () { //This function starts the game
     let playerPartnerButton = document.getElementById("partner-button");
     
     playerPartnerButton.addEventListener('click', selectPlayerPartner); //Add a listener to a 'click' event in the  webpage
-    selectOpponentPartner();
 }
 
-function selectPlayerPartner () { //This function throws a message with the partner you choose
+function selectPlayerPartner () { //Throws a message with the partner you choose
     let inputMonab = document.getElementById("monab");
     let inputNestorf = document.getElementById("nestorf");
     let inputJustoz = document.getElementById("justoz");
@@ -19,24 +19,31 @@ function selectPlayerPartner () { //This function throws a message with the part
     } else if(inputJustoz.checked) {
         playerPartnerSpan.innerHTML = 'Justoz';
     } else {
-        alert(`You didn't choose any partner`)
+        alert('Select a partner')
     }
-}
-//CODE TESTING AREA
-function selectOpponentPartner () { //I am still thinking how to do this part of the code.
-    selectPlayerPartner();
-    let opponentPartnerSpan = document.getElementById("opponent-partner")
 
-    if(inputMonab.checked) {
+    selectOpponentPartner();
+}
+
+function selectOpponentPartner () { //Selects opponent partner name making use of a random number between 1 to 3.
+    let opponentPartnerSpan = document.getElementById("opponent-partner")
+    let randomNum = random(1, 2);
+    
+    if(randomNum == 1) {
         opponentPartnerSpan.innerHTML = 'Justoz';
-    } else if(inputNestorf.checked) {
-        opponentPartnerSpan.innerHTML = 'Monab';
-    } else if(inputJustoz.checked) {
+    } else if(randomNum == 2) {
         opponentPartnerSpan.innerHTML = 'Nestorf';
     } else {
-        
+        opponentPartnerSpan.innerHTML = 'Monab';
     }
 }
 
+function random(min, max) { //Prints a random number between min and (max)+1
+    return Math.round(Math.random() * (max - min + 1) + min);
+}
+
+//CODE TESTING AREA
+
+
 //REGULAR CODE
-window.addEventListener('load', startGame);
+window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loadds.
