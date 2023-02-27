@@ -1,7 +1,6 @@
 //GLOBAL VARIABLE AREA
 let playerAttack; //this variable gets what the player selects
 let opponentAttack;
-let combatResult;
 let playerHp = 3;
 let opponentHp = 3;
 
@@ -39,7 +38,7 @@ function selectPlayerPartner () { //Throws a message with the partner you choose
 
 function selectOpponentPartner () { //Selects opponent partner name making use of a random number between 1 to 3.
     let opponentPartnerSpan = document.getElementById("opponent-partner")
-    let randomPartner = random(1, 2);
+    let randomPartner = random(1, 3);
     
     if(randomPartner == 1) {
         opponentPartnerSpan.innerHTML = 'Justoz';
@@ -66,7 +65,7 @@ function plantAttack () { //calls plant attack
 }
 
 function opponentRandomAttack () { //we add "random" word to this function, because it has to be named different from the variable.
-    let randomAttack = random(1, 2);
+    let randomAttack = random(1, 3);
     
     if (randomAttack == 1) {
         opponentAttack = 'FIRE';
@@ -84,31 +83,29 @@ function combat () {
     let opponentHpSpan = document.getElementById("opponent-hp");
 
     if (playerAttack == opponentAttack) {
-        combatResult = "IT'S A TIE";
+        createMessage("TIE");
     } else if (playerAttack == 'FIRE' && opponentAttack == 'PLANT') {
-        combatResult = "YOU WIN";
+        createMessage("WIN");
         opponentHp--;
         opponentHpSpan.innerHTML = opponentHp;
     } else if (playerAttack == 'WATER' && opponentAttack == 'FIRE') {
-        combatResult = "YOU WIN";
+        createMessage("WIN");
         opponentHp--;
         opponentHpSpan.innerHTML = opponentHp;
     }  else if (playerAttack == 'PLANT' && opponentAttack == 'WATER') {
-        combatResult = "YOU WIN";
+        createMessage("WIN");
         opponentHp--;
         opponentHpSpan.innerHTML = opponentHp;s
     } else {
-        combatResult = "YOU LOOSE";
+        createMessage("LOST");
         playerHp--;
         playerHpSpan.innerHTML = playerHp;
     }
-
-    createCombatLog();
 }
 
-function createCombatLog () { //creates a message for the combat log <div>
+function createMessage (combatResult) { //creates a message for the combat log <div>
     let combatLogSection = document.getElementById("combat-log");
-    
+
     let paragraph = document.createElement('p'); //creates an element with 'p' letter
     paragraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - ${combatResult}`;
 
