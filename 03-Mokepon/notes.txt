@@ -46,7 +46,7 @@ function rebootTheGame () {
 
 //REGULAR CODE
 while (win < 3 && loss < 3) {
-    window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.    
+    
 }
 
 rebootTheGame();

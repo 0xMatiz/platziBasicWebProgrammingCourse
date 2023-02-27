@@ -89,12 +89,6 @@ function createCombatLog () { //creates a message for the combat log <div>
 
     combatLogSection.appendChild(paragraph);
 
-    playerHp = document.getElementById("player-partner-hp");
-    playerHp.innerHTML = 3;
-
-    opponentHp = document.getElementById("opponent-partner-hp");
-    opponentHp.innerHTML = 3;
-
     if (playerAttack == opponentAttack) {
         combatResult = "IT'S A TIE";
     } else if (playerAttack == 'FIRE' && opponentAttack == 'PLANT') {
@@ -110,17 +104,23 @@ function createCombatLog () { //creates a message for the combat log <div>
     } else {
         combatResult = "YOU LOOSE";
         playerHp -= 1;
-}
-
-//CODE TESTING AREA
-
-function createResultLog () {
-    
     }
-//CODE TESTING AREA ENDS
+
+    
+}
 
 function random(min, max) { //Prints a random number between min and (max)+1
     return Math.round(Math.random() * (max - min + 1) + min);
 }
 
-}
+//CODE TESTING AREA
+function hpLog () {
+    playerHp = document.getElementById("player-partner-hp");
+    playerHp.innerHTML = 3;
+
+    opponentHp = document.getElementById("opponent-partner-hp");
+    opponentHp.innerHTML = 3;
+}    
+//CODE TESTING AREA ENDS
+
+window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.
