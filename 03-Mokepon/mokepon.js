@@ -86,6 +86,12 @@ function createCombatLog () { //creates a message for the combat log <div>
     
     let paragraph = document.createElement('p'); //creates an element with 'p' letter
     paragraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - ${combatResult}`;
+    
+    playerHp = document.getElementById("player-partner-hp");
+    playerHp.innerHTML = 3;
+
+    opponentHp = document.getElementById("opponent-partner-hp");
+    opponentHp.innerHTML = 3;
 
     combatLogSection.appendChild(paragraph);
 
@@ -104,9 +110,7 @@ function createCombatLog () { //creates a message for the combat log <div>
     } else {
         combatResult = "YOU LOOSE";
         playerHp -= 1;
-    }
-
-    
+    }    
 }
 
 function random(min, max) { //Prints a random number between min and (max)+1
@@ -114,12 +118,14 @@ function random(min, max) { //Prints a random number between min and (max)+1
 }
 
 //CODE TESTING AREA
-function hpLog () {
-    playerHp = document.getElementById("player-partner-hp");
-    playerHp.innerHTML = 3;
+function createPartnerHpLog () {
+    let chooseAttackSection = document.getElementById("choose-attack");
 
-    opponentHp = document.getElementById("opponent-partner-hp");
-    opponentHp.innerHTML = 3;
+    let playerParagraph = document.createElement('pp'); //creates an element with 'p' letter
+    playerParagraph.innerHTML = `Your partner ${playerPartnerSpan} has ${playerHp} HP left`;
+
+    let opponentParagraph = document.createElement('pp'); //creates an element with 'p' letter
+    playerParagraph.innerHTML = `Your partner ${opponentPartnerSpan} has ${opponentHp} HP left`;
 }    
 //CODE TESTING AREA ENDS
 
