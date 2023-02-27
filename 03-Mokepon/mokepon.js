@@ -86,12 +86,6 @@ function createCombatLog () { //creates a message for the combat log <div>
     
     let paragraph = document.createElement('p'); //creates an element with 'p' letter
     paragraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - ${combatResult}`;
-    
-    playerHp = document.getElementById("player-partner-hp");
-    playerHp.innerHTML = 3;
-
-    opponentHp = document.getElementById("opponent-partner-hp");
-    opponentHp.innerHTML = 3;
 
     combatLogSection.appendChild(paragraph);
 
@@ -99,17 +93,17 @@ function createCombatLog () { //creates a message for the combat log <div>
         combatResult = "IT'S A TIE";
     } else if (playerAttack == 'FIRE' && opponentAttack == 'PLANT') {
         combatResult = "YOU WIN";
-        opponentHp -= 1;
+        opponentHp --;
         
     } else if (playerAttack == 'WATER' && opponentAttack == 'FIRE') {
         combatResult = "YOU WIN";
-        opponentHp -= 1;
+        opponentHp --;
     }  else if (playerAttack == 'PLANT' && opponentAttack == 'WATER') {
         combatResult = "YOU WIN";
-        opponentHp -= 1;
+        opponentHp --;
     } else {
         combatResult = "YOU LOOSE";
-        playerHp -= 1;
+        playerHp --;
     }    
 }
 
@@ -119,6 +113,12 @@ function random(min, max) { //Prints a random number between min and (max)+1
 
 //CODE TESTING AREA
 function createPartnerHpLog () {
+    playerHp = document.getElementById("player-partner-hp");
+    playerHp.innerHTML = 3;
+
+    opponentHp = document.getElementById("opponent-partner-hp");
+    opponentHp.innerHTML = 3;
+
     let chooseAttackSection = document.getElementById("choose-attack");
 
     let playerParagraph = document.createElement('pp'); //creates an element with 'p' letter
