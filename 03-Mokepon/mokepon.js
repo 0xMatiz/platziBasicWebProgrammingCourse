@@ -4,6 +4,8 @@ let opponentAttack;
 let combatResult;
 let playerHp; 
 let opponentHp;
+let min;
+let max;
 
 //FUNCTION DECLARING AREA
 function startGame () { //This function starts the game
@@ -82,10 +84,12 @@ function opponentRandomAttack () { //we add "random" word to this function, beca
 function createCombatLog () { //creates a message for the combat log <div>
     let combatLogSection = document.getElementById("combat-log");
     
-    let combatResultParagraph = document.createElement('p'); //creates an element with 'p' letter
-    combatResultParagraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - ${combatResult}`;
+    let paragraph = document.createElement('p'); //creates an element with 'p' letter
+    paragraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - ${combatResult}`;
 
-    combatLogSection.appendChild(combatResultParagraph);
+    combatLogSection.appendChild(paragraph);
+
+    createResultLog();
 }
 
 function random(min, max) { //Prints a random number between min and (max)+1
@@ -94,7 +98,12 @@ function random(min, max) { //Prints a random number between min and (max)+1
 
 //CODE TESTING AREA
 
-function combatResultConditionals () {
+function createResultLog () {
+    playerHp = document.getElementById("player-partner-hp");
+    playerHp.innerHTML = 3;
+
+    opponentHp = document.getElementById("opponent-partner-hp");
+    opponentHp.innerHTML = 3;
 
     if (playerAttack == opponentAttack) {
         combatResult = "IT'S A TIE";
@@ -112,9 +121,5 @@ function combatResultConditionals () {
         combatResult = "YOU LOOSE";
         playerHp -= 1;
     }
-
-    playerHp = document.getElementById("player-partner-hp");
-    
-    opponentHp = document.getElementById("opponent-partner-hp");
 
 }
