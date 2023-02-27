@@ -10,11 +10,14 @@ function startGame () { //This function starts the game
     playerPartnerButton.addEventListener('click', selectPlayerPartner); //Add a listener to a 'click' event in the  webpage
 
     let fireButton = document.getElementById("fire-button"); //always be sure that you have declared your variables!!
-    let waterButton = document.getElementById("water-button");
-    let plantButton = document.getElementById("plant-button");
     fireButton.addEventListener('click', fireAttack); //declares fire attack
+    let waterButton = document.getElementById("water-button");
     waterButton.addEventListener('click', waterAttack); //declares water attack
+    let plantButton = document.getElementById("plant-button");
     plantButton.addEventListener('click', plantAttack); //declares plant attack
+
+    let rebootButton = document.getElementById("reboot-button");
+    rebootButton.addEventListener('click', rebootTheGame);
 }
 
 function selectPlayerPartner () { //Throws a message with the partner you choose
@@ -77,7 +80,7 @@ function opponentRandomAttack () { //we add "random" word to this function, beca
 
     combat();
 }
-
+//When you declare a hi
 function combat () {
     let playerHpSpan = document.getElementById("player-hp");
     let opponentHpSpan = document.getElementById("opponent-hp");
@@ -101,6 +104,32 @@ function combat () {
         playerHp--;
         playerHpSpan.innerHTML = playerHp;
     }
+
+    countHp();
+}
+
+function countHp () {
+    if (opponentHp == 0) {
+        createFinalMessage("YOU WON, CONGRATULATIONS!");
+    } else if (playerHp == 0) {
+        createFinalMessage("YOU LOST, BUT YOU EARNED EXPERIENCE IN THIS GAME!");
+    }
+}
+
+function createFinalMessage (finalResult) { //creates a message for the combat log <div>
+    let combatLogSection = document.getElementById("combat-log");
+
+    let paragraph = document.createElement('p'); //creates an element with 'p' letter
+    paragraph.innerHTML = finalResult;
+
+    combatLogSection.appendChild(paragraph);
+
+    let fireButton = document.getElementById("fire-button"); //always be sure that you have declared your variables!!
+    fireButton.disabled = true;
+    let waterButton = document.getElementById("water-button");
+    waterButton.disabled = true;
+    let plantButton = document.getElementById("plant-button");
+    plantButton.disabled = true;
 }
 
 function createMessage (combatResult) { //creates a message for the combat log <div>
@@ -110,6 +139,10 @@ function createMessage (combatResult) { //creates a message for the combat log <
     paragraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - ${combatResult}`;
 
     combatLogSection.appendChild(paragraph);
+}
+
+rebootTheGame () {
+    location.reload();
 }
 
 function random(min, max) { //Prints a random number between min and (max)+1
