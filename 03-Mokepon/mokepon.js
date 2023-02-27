@@ -85,26 +85,22 @@ function combat () {
 
     if (playerAttack == opponentAttack) {
         combatResult = "IT'S A TIE";
-
     } else if (playerAttack == 'FIRE' && opponentAttack == 'PLANT') {
         combatResult = "YOU WIN";
         opponentHp--;
-        opponentHpSpan = playerHp;  
-
+        opponentHpSpan.innerHTML = opponentHp;
     } else if (playerAttack == 'WATER' && opponentAttack == 'FIRE') {
         combatResult = "YOU WIN";
         opponentHp--;
-        opponentHpSpan = playerHp;
-
+        opponentHpSpan.innerHTML = opponentHp;
     }  else if (playerAttack == 'PLANT' && opponentAttack == 'WATER') {
         combatResult = "YOU WIN";
         opponentHp--;
-        opponentHpSpan = playerHp;
-
+        opponentHpSpan.innerHTML = opponentHp;s
     } else {
         combatResult = "YOU LOOSE";
         playerHp--;
-        playerHpSpan = playerHp;
+        playerHpSpan.innerHTML = playerHp;
     }
 
     createCombatLog();
@@ -122,8 +118,7 @@ function createCombatLog () { //creates a message for the combat log <div>
 function random(min, max) { //Prints a random number between min and (max)+1
     return Math.round(Math.random() * (max - min + 1) + min);
 }
-    window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.
 
-
+window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.
 
 //CODE TESTING AREA
