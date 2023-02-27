@@ -2,10 +2,6 @@
 let playerAttack; //this variable gets what the player selects
 let opponentAttack;
 let combatResult;
-let playerHp; 
-let opponentHp;
-let min;
-let max;
 
 //FUNCTION DECLARING AREA
 function startGame () { //This function starts the game
@@ -79,6 +75,7 @@ function opponentRandomAttack () { //we add "random" word to this function, beca
     }
 
     createCombatLog();
+    createHpLog();
 }
 
 function createCombatLog () { //creates a message for the combat log <div>
@@ -88,12 +85,6 @@ function createCombatLog () { //creates a message for the combat log <div>
     paragraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - ${combatResult}`;
 
     combatLogSection.appendChild(paragraph);
-
-    playerHp = document.getElementById("player-partner-hp");
-    playerHp.innerHTML = 3;
-
-    opponentHp = document.getElementById("opponent-partner-hp");
-    opponentHp.innerHTML = 3;
 
     if (playerAttack == opponentAttack) {
         combatResult = "IT'S A TIE";
@@ -112,25 +103,27 @@ function createCombatLog () { //creates a message for the combat log <div>
         playerHp --;
     }
 
-    createHpLog();
-}
+}   
 
 function createHpLog () {
-    let chooseAttackSection = document.getElementById("choose-attack");
+    let playerHp = document.getElementById("player-hp");
+    playerHp.innerHTML = 3;
 
-    let playerParagraph = document.createElement('pp'); //creates an element with 'p' letter
-    playerParagraph.innerHTML = `Your partner ${playerPartnerSpan} has ${playerHp} HP left`;
-
-    let opponentParagraph = document.createElement('pp'); //creates an element with 'p' letter
-    playerParagraph.innerHTML = `Your partner ${opponentPartnerSpan} has ${opponentHp} HP left`;
-}   
+    let opponentHp = document.getElementById("opponent-hp");
+    opponentHp.innerHTML = 3;
+}
 
 function random(min, max) { //Prints a random number between min and (max)+1
     return Math.round(Math.random() * (max - min + 1) + min);
 }
 
-//CODE TESTING AREA
- 
-//CODE TESTING AREA ENDS
-
 window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.
+
+//CODE TESTING AREA
+    /*
+    let playerHp = document.getElementById("player-hp");
+    playerHp.innerHTML = 3;
+
+    let opponentHp = document.getElementById("opponent-hp");
+    opponentHp.innerHTML = 3;
+    */
