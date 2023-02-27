@@ -74,8 +74,23 @@ function opponentRandomAttack () { //we add "random" word to this function, beca
         opponentAttack = 'PLANT';
     }
 
+    combat();
+}
+
+function combat () {
+    if (playerAttack == opponentAttack) {
+        combatResult = "IT'S A TIE";
+    } else if (playerAttack == 'FIRE' && opponentAttack == 'PLANT') {
+        combatResult = "YOU WIN";   
+    } else if (playerAttack == 'WATER' && opponentAttack == 'FIRE') {
+        combatResult = "YOU WIN";
+    }  else if (playerAttack == 'PLANT' && opponentAttack == 'WATER') {
+        combatResult = "YOU WIN";
+    } else {
+        combatResult = "YOU LOOSE";
+    }
+
     createCombatLog();
-    createHpLog();
 }
 
 function createCombatLog () { //creates a message for the combat log <div>
@@ -85,34 +100,24 @@ function createCombatLog () { //creates a message for the combat log <div>
     paragraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - ${combatResult}`;
 
     combatLogSection.appendChild(paragraph);
-
-    if (playerAttack == opponentAttack) {
-        combatResult = "IT'S A TIE";
-    } else if (playerAttack == 'FIRE' && opponentAttack == 'PLANT') {
-        combatResult = "YOU WIN";
-        opponentHp --;
-        
-    } else if (playerAttack == 'WATER' && opponentAttack == 'FIRE') {
-        combatResult = "YOU WIN";
-        opponentHp --;
-    }  else if (playerAttack == 'PLANT' && opponentAttack == 'WATER') {
-        combatResult = "YOU WIN";
-        opponentHp --;
-    } else {
-        combatResult = "YOU LOOSE";
-        playerHp --;
-    }
-
-}   
-
+}
+//createHpLog();
+   
+/*
 function createHpLog () {
     let playerHp = document.getElementById("player-hp");
     playerHp.innerHTML = 3;
 
     let opponentHp = document.getElementById("opponent-hp");
     opponentHp.innerHTML = 3;
-}
 
+    if (combatResult == "YOU WIN" && opponentHp > 0) {
+        opponentHp--;
+    } else if (combatResult == "YOU LOOSE" && playerHp > 0) {
+        playerHp--;
+    }
+}
+*/
 function random(min, max) { //Prints a random number between min and (max)+1
     return Math.round(Math.random() * (max - min + 1) + min);
 }
@@ -120,10 +125,3 @@ function random(min, max) { //Prints a random number between min and (max)+1
 window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.
 
 //CODE TESTING AREA
-    /*
-    let playerHp = document.getElementById("player-hp");
-    playerHp.innerHTML = 3;
-
-    let opponentHp = document.getElementById("opponent-hp");
-    opponentHp.innerHTML = 3;
-    */
