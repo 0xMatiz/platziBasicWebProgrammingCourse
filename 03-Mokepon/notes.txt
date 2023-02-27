@@ -1,3 +1,5 @@
+//IN THIS NOTES I WILL STORE ALL THE CODE THAT FOR SOME REASON DOES NOT HAVE UTILIY AT THE MOMENT BUT CAN BE USEFULL LATER.
+
 /*Unpractical way to not deleting things 😅
 Monab -> PLANT       <!--1)Quirk "Humble Roots": Plants indestrutible roots that pass on to the next allie (PROTECTS FROM 1 LETHAL ATTACK)-->
 Nestorf -> WATER     <!--2)Quirk "Tide Tamer": Learns from each hit received and adapts to the circumstances(+RES +SP RES WHEN ATTACKED)-->
@@ -23,3 +25,29 @@ Santz -> FIRE & WATER<!--6)Quirk "Reliable Vapor":-->
             
             <label for="santz">Santz</label>
             <input type="radio" name="partner" id="santz"/>
+
+
+/*
+//chooseAttackSection = document.getElementById("choose-attack");
+
+//STAND BY CODE 
+function reboot () { //search what you did wrong!
+    if ( playerPartnerHp < 1 || opponentPartnerHp < 1) {
+        alert('YOU WON THE BEST OF THREE!');
+    } else {
+        alert('ERROR IN REBOOT');
+    }
+}
+
+function rebootTheGame () {
+    let rebootButton = document.getElementById("reboot-button");
+    reboot.addEventListener('click', rebootButton);
+}   
+
+//REGULAR CODE
+while (win < 3 && loss < 3) {
+    window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.    
+}
+
+rebootTheGame();
+*/

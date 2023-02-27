@@ -2,8 +2,8 @@
 let playerAttack; //this variable gets what the player selects
 let opponentAttack;
 let combatResult;
-let win;
-let loss;
+let playerHp; 
+let opponentHp;
 
 //FUNCTION DECLARING AREA
 function startGame () { //This function starts the game
@@ -82,10 +82,10 @@ function opponentRandomAttack () { //we add "random" word to this function, beca
 function createCombatLog () { //creates a message for the combat log <div>
     let combatLogSection = document.getElementById("combat-log");
     
-    let paragraph = document.createElement('p'); //creates an element with 'p' letter
-    paragraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - ${combatResult}`;
+    let combatResultParagraph = document.createElement('p'); //creates an element with 'p' letter
+    combatResultParagraph.innerHTML = `Your partner attacked with ${playerAttack}, the opponent partner attacked with ${opponentAttack} - ${combatResult}`;
 
-    combatLogSection.appendChild(paragraph);
+    combatLogSection.appendChild(combatResultParagraph);
 }
 
 function random(min, max) { //Prints a random number between min and (max)+1
@@ -94,48 +94,27 @@ function random(min, max) { //Prints a random number between min and (max)+1
 
 //CODE TESTING AREA
 
-function gameResult () {
+function combatResultConditionals () {
+
     if (playerAttack == opponentAttack) {
         combatResult = "IT'S A TIE";
-    } else if (playerAttack == 'FIRE' && opponentAttack == 'WATER') {
-        combatResult = "YOU LOOSE";
-        loss += 1;
     } else if (playerAttack == 'FIRE' && opponentAttack == 'PLANT') {
-        combatResult = "YOU WIN"
-        win += 1;
-    } else if (playerAttack == 'WATER' && opponentAttack == 'PLANT') {
-        combatResult = "YOU LOOSE"
-        loss += 1;
+        combatResult = "YOU WIN";
+        opponentHp -= 1;
+        
     } else if (playerAttack == 'WATER' && opponentAttack == 'FIRE') {
-        combatResult = "YOU WIN"
-        win += 1;
-    }  else if (playerAttack == 'PLANT' && opponentAttack == 'FIRE') {
-        combatResult = "YOU LOOSE"
-        loss += 1;
+        combatResult = "YOU WIN";
+        opponentHp -= 1;
     }  else if (playerAttack == 'PLANT' && opponentAttack == 'WATER') {
-        combatResult = "YOU WIN"
-        win += 1;
-    }
-}
-
-function reboot () { //search what you did wrong!
-    if (win >= 3) {
-        alert('YOU WON THE BEST OF THREE!');
-    } else if (loss >= 3) {
-        alert('YOU LOST THE BEST OF THREE!');
+        combatResult = "YOU WIN";
+        opponentHp -= 1;
     } else {
-        alert('ERROR IN REBOOT');
+        combatResult = "YOU LOOSE";
+        playerHp -= 1;
     }
+
+    playerHp = document.getElementById("player-partner-hp");
+    
+    opponentHp = document.getElementById("opponent-partner-hp");
+
 }
-
-function rebootTheGame () {
-    let rebootButton = document.getElementById("reboot-button");
-    reboot.addEventListener('click', rebootButton);
-}   
-//REGULAR CODE
-while (win < 3 && loss < 3) {
-    window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.    
-}
-
-rebootTheGame();
-
