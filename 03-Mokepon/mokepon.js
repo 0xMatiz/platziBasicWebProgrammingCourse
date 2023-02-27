@@ -89,16 +89,6 @@ function createCombatLog () { //creates a message for the combat log <div>
 
     combatLogSection.appendChild(paragraph);
 
-    createResultLog();
-}
-
-function random(min, max) { //Prints a random number between min and (max)+1
-    return Math.round(Math.random() * (max - min + 1) + min);
-}
-
-//CODE TESTING AREA
-
-function createResultLog () {
     playerHp = document.getElementById("player-partner-hp");
     playerHp.innerHTML = 3;
 
@@ -120,6 +110,17 @@ function createResultLog () {
     } else {
         combatResult = "YOU LOOSE";
         playerHp -= 1;
+}
+
+//CODE TESTING AREA
+
+function createResultLog () {
+    
     }
+//CODE TESTING AREA ENDS
+
+function random(min, max) { //Prints a random number between min and (max)+1
+    return Math.round(Math.random() * (max - min + 1) + min);
+}
 
 }
