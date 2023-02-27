@@ -2,6 +2,8 @@
 let playerAttack; //this variable gets what the player selects
 let opponentAttack;
 let combatResult;
+let playerHp = 3;
+let opponentHp = 3;
 
 //FUNCTION DECLARING AREA
 function startGame () { //This function starts the game
@@ -78,16 +80,31 @@ function opponentRandomAttack () { //we add "random" word to this function, beca
 }
 
 function combat () {
+    let playerHpSpan = document.getElementById("player-hp");
+    let opponentHpSpan = document.getElementById("opponent-hp");
+
     if (playerAttack == opponentAttack) {
         combatResult = "IT'S A TIE";
+
     } else if (playerAttack == 'FIRE' && opponentAttack == 'PLANT') {
-        combatResult = "YOU WIN";   
+        combatResult = "YOU WIN";
+        opponentHp--;
+        opponentHpSpan = playerHp;  
+
     } else if (playerAttack == 'WATER' && opponentAttack == 'FIRE') {
         combatResult = "YOU WIN";
+        opponentHp--;
+        opponentHpSpan = playerHp;
+
     }  else if (playerAttack == 'PLANT' && opponentAttack == 'WATER') {
         combatResult = "YOU WIN";
+        opponentHp--;
+        opponentHpSpan = playerHp;
+
     } else {
         combatResult = "YOU LOOSE";
+        playerHp--;
+        playerHpSpan = playerHp;
     }
 
     createCombatLog();
@@ -101,27 +118,12 @@ function createCombatLog () { //creates a message for the combat log <div>
 
     combatLogSection.appendChild(paragraph);
 }
-//createHpLog();
-   
-/*
-function createHpLog () {
-    let playerHp = document.getElementById("player-hp");
-    playerHp.innerHTML = 3;
 
-    let opponentHp = document.getElementById("opponent-hp");
-    opponentHp.innerHTML = 3;
-
-    if (combatResult == "YOU WIN" && opponentHp > 0) {
-        opponentHp--;
-    } else if (combatResult == "YOU LOOSE" && playerHp > 0) {
-        playerHp--;
-    }
-}
-*/
 function random(min, max) { //Prints a random number between min and (max)+1
     return Math.round(Math.random() * (max - min + 1) + min);
 }
+    window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.
 
-window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.
+
 
 //CODE TESTING AREA
