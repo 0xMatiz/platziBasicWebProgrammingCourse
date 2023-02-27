@@ -6,6 +6,12 @@ let opponentHp = 3;
 
 //FUNCTION DECLARING AREA
 function startGame () { //This function starts the game
+    let rebootSection = document.getElementById("reboot");
+    rebootSection.style.display = 'none';
+    
+    let chooseAttackSection = document.getElementById("choose-attack");
+    chooseAttackSection.style.display = 'none'; //hides this section in the start of the game
+    
     let playerPartnerButton = document.getElementById("partner-button");
     playerPartnerButton.addEventListener('click', selectPlayerPartner); //Add a listener to a 'click' event in the  webpage
 
@@ -18,9 +24,16 @@ function startGame () { //This function starts the game
 
     let rebootButton = document.getElementById("reboot-button");
     rebootButton.addEventListener('click', rebootTheGame);
+
 }
 
 function selectPlayerPartner () { //Throws a message with the partner you choose
+    let choosePartnerSection = document.getElementById("choose-partner");
+    choosePartnerSection.style.display = 'none';
+    
+    let chooseAttackSection = document.getElementById("choose-attack");
+    chooseAttackSection.style.display = 'block';
+
     let inputMonab = document.getElementById("monab");
     let inputNestorf = document.getElementById("nestorf");
     let inputJustoz = document.getElementById("justoz");
@@ -80,7 +93,7 @@ function opponentRandomAttack () { //we add "random" word to this function, beca
 
     combat();
 }
-//When you declare a hi
+
 function combat () {
     let playerHpSpan = document.getElementById("player-hp");
     let opponentHpSpan = document.getElementById("opponent-hp");
@@ -124,12 +137,15 @@ function createFinalMessage (finalResult) { //creates a message for the combat l
 
     combatLogSection.appendChild(paragraph);
 
-    let fireButton = document.getElementById("fire-button"); //always be sure that you have declared your variables!!
+    let fireButton = document.getElementById("fire-button");
     fireButton.disabled = true;
     let waterButton = document.getElementById("water-button");
     waterButton.disabled = true;
     let plantButton = document.getElementById("plant-button");
     plantButton.disabled = true;
+
+    let rebootSection = document.getElementById("reboot"); //shows reboot button
+    rebootSection.style.display = 'block';
 }
 
 function createMessage (combatResult) { //creates a message for the combat log <div>
@@ -141,7 +157,7 @@ function createMessage (combatResult) { //creates a message for the combat log <
     combatLogSection.appendChild(paragraph);
 }
 
-rebootTheGame () {
+function rebootTheGame () {
     location.reload();
 }
 
@@ -149,6 +165,5 @@ function random(min, max) { //Prints a random number between min and (max)+1
     return Math.round(Math.random() * (max - min + 1) + min);
 }
 
+//REGULAR CODE
 window.addEventListener('load', startGame); //This runs all the code in startGame(); after all of the data loads.
-
-//CODE TESTING AREA
