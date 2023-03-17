@@ -2,28 +2,34 @@
 <html>
     <head>
         <title>MOKEPON!</title>
-        <script src="/03-Mokepon/03-js/mokepon.js"></script>
-        <link rel="stylesheet" href="./03-css/styles.css">
+        <script src="./mokepon.js"></script>
+        <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <h1 class="title">MOKEPON! 🔥💧🌱</h1>
-
-        <section id="comment-about-the-proyect">
-            <h2>This is my second web game</h2>
-            <h2>Im very motivated to keep doing this!</h2>
-        </section>
+        <h1 class="title">Mokepon! 🔥💧🌱</h1>
 
         <section id="choose-partner">
-            <h2>Choose your partner:</h2>
+            <h2 class="subtitle">Choose your partner:</h2>
             
-            <label for="monab">Justoz</label>
-            <input type="radio" name="partner" id="justoz"/> 
-            
-            <label for="nestorf">Nestorf</label>
-            <input type="radio" name="partner" id="nestorf"/>
-            
-            <label for="justoz">Monab</label>
-            <input type="radio" name="partner" id="monab"/>
+            <div class="cards">
+                <label class="mokepon-card" for="justoz">
+                    <p>Justoz</p>
+                    <img src="./Assets/fire.png" alt="Justoz">
+                </label>
+                <input type="radio" name="partner" id="justoz"/> 
+                
+                <label class="mokepon-card" for="nestorf">
+                    <p>Nestorf</p>
+                    <img src="./Assets/water.png" alt="Nestorf">
+                </label>
+                <input type="radio" name="partner" id="nestorf"/>
+                
+                <label class="mokepon-card" for="monab">
+                    <p>Monab</p>
+                    <img src="./Assets/plant.png" alt="Monab">
+                </label>
+                <input type="radio" name="partner" id="monab"/>
+            </div>
 
             <p>
                 <button id="partner-button">Select</button>
@@ -33,24 +39,28 @@
         <section id="choose-attack">
             <h2>Choose your attack:</h2>
 
-            <p>Your partner <span id="player-partner">mokepon</span> has <span id="player-hp">3</span> HP left</p>
-            <p>The opponent partner <span id="opponent-partner">mokepon</span> has <span id="opponent-hp">3</span> HP left</p>
-
-            <p>
+            <div>
                 <button id="fire-button">Fire🔥</button>
                 <button id="water-button">Water💧</button>
                 <button id="plant-button">Plant🌱</button>
-            </p>
+            </div>
+
+            <div>
+                <section id="combat-log">
+                </section>
+        
+                <section id="reboot">
+                    <p>
+                        <button id="reboot-button">Reboot</button>
+                    </p>
+                </section>
+            </div>
+            
+            <p>Your partner <span id="player-partner">mokepon</span> has <span id="player-hp">3</span> HP left</p>
+            <p>The opponent partner <span id="opponent-partner">mokepon</span> has <span id="opponent-hp">3</span> HP left</p>
+            
         </section>
 
-        <section id="combat-log">
-            <p></p>
-        </section>
-
-        <section id="reboot">
-            <p>
-                <button id="reboot-button">Reboot</button>
-            </p>
-        </section>
+        
     </body>
 </html>

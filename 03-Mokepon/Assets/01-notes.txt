@@ -51,3 +51,7 @@ while (win < 3 && loss < 3) {
 
 rebootTheGame();
 */
+
+        <section id="comment">
+            <h4>This is my second web game, I'm very motivated to keep doing this!</h4>
+        </section>

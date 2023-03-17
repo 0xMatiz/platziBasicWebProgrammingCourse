@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #13005A;
+    color: #03C988;
+}
+
+#choose-partner {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+  }
+
+#comment {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    gap: 10px;
+}
+
+.mokepon-card {
+width: 180px;
+height: 100px;
+background: #00337C;
+padding: 10px;
+box-sizing: border-box;
+border-radius: 20%;
+display: flex;
+flex-wrap: nowrap;
+align-content: center;
+justify-content: center;
+align-items: center;
+}
+
+.mokepon-card img {
+    width: 80px;
+}
+
+#partner-button {
+    width: 180px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid white;
+    color: #03c988;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+}
+
+input {
+display: none;
+}
